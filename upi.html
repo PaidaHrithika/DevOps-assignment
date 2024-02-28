@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UPI Payment</title>
+  <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Enter UPI Details</h1>
+    <style>
+      body {
+        background-image: url('thankyou.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+      }
+  </style>
+    <!-- Form for UPI details -->
+    <form id="upiForm">
+      <!-- UPI details input fields here -->
+      <label for="upiId">Enter UPI ID:</label>
+      <input type="text" id="upiId" name="upiId" required>
+      <br>
+      <!-- Submit button -->
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+ 
+  <!-- JavaScript for handling form submission and redirection -->
+  <script>
+    // Get the form element
+    const upiForm = document.getElementById('upiForm');
+ 
+    // Add event listener for form submission
+    upiForm.addEventListener('submit', function(event) {
+      // Prevent the default form submission behavior
+      event.preventDefault();
+ 
+      // Redirect to order.html after form submission
+      window.location.href = 'order.html';
+    });
+  </script>
+</body>
+</html>

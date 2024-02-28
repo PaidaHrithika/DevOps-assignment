@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <div class="container">
+        <h1>REGISTER</h1>
+        <style>
+            body {
+              background-image: url('cartBack.jpg');
+              background-repeat: no-repeat;
+              background-attachment: fixed;
+              background-size: 100% 100%;
+            }
+        </style>
+        <form id="registrationForm">
+            <div class="form-group">
+                <div class="name-group">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="name-group">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+            </div>
+
+            <div class="form-group1">
+                <input type="checkbox" id="termsAndConditions" name="termsAndConditions" required>
+                <label for="termsAndConditions">I accept the terms and conditions</label>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+   
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const registrationForm = document.getElementById("registrationForm");
+
+            registrationForm.addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                const username = document.getElementById("username").value;
+                const email = document.getElementById("email").value;
+                const password = document.getElementById("password").value;
+                const confirmPassword = document.getElementById("confirmPassword").value;
+
+                // Check if passwords match
+                if (password !== confirmPassword) {
+                    alert("Passwords do not match. Please try again.");
+                    return;
+                }
+
+                // Check if the user is already registered
+                const registeredUsers = JSON.parse(localStorage.getItem("registeredUsers")) || [];
+                const userExists = registeredUsers.some(user => user.email === email);
+
+                if (userExists) {
+                    alert("User with this email already exists. Please use a different email.");
+                    return;
+                }
+
+                // Register the user
+                const newUser = { username, email, password };
+                registeredUsers.push(newUser);
+                localStorage.setItem("registeredUsers", JSON.stringify(registeredUsers));
+
+                // Registration successful
+                alert("Registration Successful!");
+                // Redirect to login page
+                window.location.href = "login.html";
+            });
+        });
+    </script>
+    <!-- // </script> src="register.js"  -->
+</body>
+</html>

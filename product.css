@@ -1,0 +1,118 @@
+.header {
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center; /* Align content in the center */
+    position: relative; /* Add position relative */
+}
+ 
+#searchInput {
+    padding: 5px;
+    margin-right: 10px;
+}
+ 
+#searchBtn {
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+ 
+#searchBtn:hover {
+    background-color: #0056b3;
+}
+ 
+#logoutBtn {
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    position: absolute; /* Position absolute for manual positioning */
+    top: 10px; /* Adjust top spacing */
+    right: 10px; /* Adjust right spacing */
+}
+ 
+#logoutBtn:hover {
+    background-color: #0056b3;
+}
+ 
+.product-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 300px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+}
+ 
+.product-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+ 
+.product-details {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+ 
+.product-description {
+    margin-bottom: 10px;
+   
+}
+ 
+.add-to-cart-btn,
+.add-to-wishlist-btn {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+ 
+.add-to-cart-btn:hover,
+.add-to-wishlist-btn:hover {
+    background-color: #0056b3;
+}
+
+.wishlistButton {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+ 
+#wishlist {
+    
+    display: block;
+    width: 10%;
+    padding-right: 50px;
+    padding: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}

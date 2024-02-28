@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist</title>
+    <link rel="stylesheet" href="wishlist.css">
+</head>
+<body>
+    <h1>My Wishlist</h1>
+    <style>
+        body {
+            background-image: url('wishlistBack.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+        #my_img {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+    <div id="wishlist"></div>
+    <div style="text-align:center;"></div>
+   
+ 
+    <script>
+        function addtoCart() {
+            // Construct the URL with wishlist items as parameters
+            let wishlistParams = encodeURIComponent(JSON.stringify(wishlistItems));
+            let url = 'cart.html?wishlist=' + wishlistParams;
+ 
+            // Navigate to the cart page
+            window.location.href = url;
+        }
+ 
+        function removeFromWishlist(index) {
+            wishlistItems.splice(index, 1); // Remove item from wishlist array
+            displayWishlist(); // Update the displayed wishlist
+        }
+ 
+        function displayWishlist() {
+            let wishlistDiv = document.getElementById('wishlist');
+            if (wishlistItems.length === 0) {
+                wishlistDiv.innerHTML = "<p>Your wishlist is empty.</p><br><button id='continueShoppingButton'>Continue Shopping</button>";
+                function continueShopping() {
+                    // Redirect to shopping page
+                    window.location.href = 'product.html';
+                }
+                document.getElementById('continueShoppingButton').addEventListener('click', continueShopping);
+               
+            }
+             else {
+                let wishlistHTML = "";
+                wishlistItems.forEach(function(item,index) {
+                    wishlistHTML += "<div class='wishlist-item'>";
+                    wishlistHTML += "<h2>" + item.name + "</h2>";
+                    wishlistHTML += "<img src='"+item.image + "' alt='" + item.name + "' id='my_img'>";
+                    wishlistHTML += "<p>" + item.price + "</p>";
+                    wishlistHTML += "<button onclick='removeFromWishlist(" + index + ")'>Remove</button>";
+                    wishlistHTML += "<button onclick='addtoCart()'>Go to Cart</button>";
+                    wishlistHTML += "</div>";
+                });
+                wishlistDiv.innerHTML = wishlistHTML;
+            }
+        }
+ 
+        // Retrieve wishlist items from URL parameters
+        let urlParams = new URLSearchParams(window.location.search);
+        let wishlistParam = urlParams.get('wishlist');
+        let wishlistItems = wishlistParam ? JSON.parse(decodeURIComponent(wishlistParam)) : [];
+ 
+        // Display wishlist items
+        displayWishlist();
+    </script>
+</body>
+</html>

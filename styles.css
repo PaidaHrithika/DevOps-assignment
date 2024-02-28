@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+ 
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 100px auto;
+    text-align: center;
+}
+ 
+h1 {
+    color: white;
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.logo {
+    position: absolute; /* Position logo absolutely within container */
+    top: 10px; /* Adjust top position as needed */
+    left: 10px; /* Adjust left position as needed */
+    width: 100px; /* Set width of the logo */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.GOGreenlogo {
+    position: absolute; /* Position logo absolutely within container */
+    bottom: 10px; /* Adjust top position as needed */
+    right: 10px; /* Adjust left position as needed */
+    width: 100px; /* Set width of the logo */
+    height: auto; /* Maintain aspect ratio */
+}
+.options {
+    margin-top: 50px;
+}
+ 
+button {
+    padding: 15px 25px;
+    margin: 20px 40px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(125, 154, 138);
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+ 
+button:hover {
+    background-color: #0056b3;
+}
+has context menu
+Compose

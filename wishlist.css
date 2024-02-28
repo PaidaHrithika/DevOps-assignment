@@ -1,0 +1,67 @@
+h1 {
+    text-align: center;
+    padding-right: 15px;
+    margin-bottom: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    color: black;
+   
+}
+P {
+    text-align: center;
+    padding-right: 15px;
+    padding-top: 15px;
+    color:black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
+#wishlist{
+   text-align: center;
+  
+   
+ 
+}
+.wishlist-item{
+   color: black;
+
+}
+
+
+/* Style for wishlist items */
+.wishlist-item {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+/* Style for wishlist item image */
+.wishlist-item img {
+    max-width: 300px; /* Adjust according to your preference */
+    max-height: 300px; /* Adjust according to your preference */
+}
+
+/* Style for buttons */
+.wishlist-item button {
+    margin-top: 10px;
+    padding: 10px 10px;
+    background-color: #007bff; /* Blue color, adjust as needed */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Style for continue shopping button */
+#continueShoppingButton {
+    background-color: rgb(199, 242, 199); /* Green color, adjust as needed */
+}
+
+/* Hover effect for buttons */
+.wishlist-item button:hover {
+    background-color: #0056b3; /* Darker blue on hover, adjust as needed */
+}
+
+/* Style for the main wishlist container */
+#wishlist {
+    width: 80%;
+    margin: auto;
+}

@@ -1,0 +1,148 @@
+<!-- Page 2: Cart Page -->
+ 
+   
+<!-- Product details display -->
+<!--<h2>Cart</h2>
+<div id="imageContainer"></div>
+<p>Product Name: <span id="product-name"></span></p>
+<p>Price: <span id="price"></span></p>
+<h2>Payment Details</h2>
+<label for="deliveryDistance">Delivery Distance (km):</label>
+<input type="number" id="deliveryDistance" min="0">
+<div id="results"></div>
+<!-- Additional payment inputs can be added here -->
+<!--<button onclick="proceed()" id="proceed-to-pay-btn">Proceed to Pay</button>
+<script>
+    // Function to get query parameter by name
+    function getQueryParam(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+    function proceed(){
+        window.location.href="payment.html";
+    }
+    // Get product details from query parameters
+    const productName = getQueryParam('productName');
+    const price = getQueryParam('price');
+    const image= getQueryParam('image');
+    // Display product details
+    document.getElementById('product-name').textContent= productName;
+    document.getElementById('price').textContent = price;
+    document.getElementById('deliveryDistance').addEventListener('input', calculateCharges);
+    function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        };
+        // Get the image URL parameter from the URL
+        var imageUrl = getUrlParameter('image');
+        // Function to display the image
+        function displayImage(imageUrl) {
+            var img = document.createElement('img');
+            img.src = imageUrl;
+            document.getElementById('imageContainer').appendChild(img);
+        }
+        displayImage(imageUrl);
+        var gstRate = 18; // Example: 18%
+        // Function to calculate delivery charges
+        function calculateDeliveryCharges(distance) {
+            // Example delivery charge calculation based on distance
+            // You can adjust this formula based on your specific requirements
+            return distance * 0.1; // $0.10 per kilometer
+        }
+        function calculateCharges() {
+            // Get input values
+            var itemPrice = price.replace('$', '');
+            var pricefloatValue = parseFloat(itemPrice);
+            var deliveryDistance = parseFloat(document.getElementById('deliveryDistance').value);
+            console.log('test---',itemPrice);
+            // Calculate GST
+            var gstAmount = (pricefloatValue * gstRate) / 100;
+            // Calculate delivery charges
+            var deliveryCharge = calculateDeliveryCharges(deliveryDistance);
+            // Calculate total amount
+            var totalAmount = pricefloatValue + gstAmount + deliveryCharge;
+            console.log('test---',totalAmount);
+            // Display results
+            var resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = `
+<h2>Total Amount</h2>
+<p>Item Price: $${pricefloatValue.toFixed(2)}</p>
+<p>GST Amount (${gstRate}%): $${gstAmount.toFixed(2)}</p>
+<p>Delivery Charge: $${deliveryCharge.toFixed(2)}</p>
+<p>Total Amount (including GST and Delivery Charges): $${totalAmount.toFixed(2)}</p>
+            `;
+        }
+</script> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart</title>
+</head>
+<body>
+<h1>My Cart</h1>
+<style>
+    body {
+        background-image: url('productback.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+    #my_img {
+        width: 400px;
+        height: 300px;
+    }
+</style>
+<div id="cart"></div>
+<p> Add Address</p>
+<div class:"address>
+    <input type="text" id="address" name="address" value="address">
+</div>
+<p> TOTAL PRICE:</p>
+<p>GST Amount (18%): <span id="gstAmount"></span></p>
+<p>Delivery Charge: <span id="deliveryCharge"></span></p>
+<p>Total Amount (including GST and Delivery Charges): <span id="totalPrice"></span></p>
+<button onclick="proceed()" id="proceed-to-pay-btn">Proceed to Pay</button>
+ 
+    <script>
+        function proceed(){
+            window.location.href="payment.html";
+        }
+        // Retrieve wishlist items from URL parameters
+        let urlParams = new URLSearchParams(window.location.search);
+        let wishlistParam = urlParams.get('wishlist');
+        let wishlistItems = wishlistParam ? JSON.parse(decodeURIComponent(wishlistParam)) : [];
+        // Display cart items and calculate total price
+        let cartDiv = document.getElementById('cart');
+        let totalPriceSpan = document.getElementById('totalPrice');
+        let deliveryCharge = document.getElementById('deliveryCharge');;
+        let gstAmount = document.getElementById('gstAmount');;
+        if (wishlistItems.length === 0) {
+            cartDiv.innerHTML = "<p>Your cart is empty.</p>";
+            totalPriceSpan.textContent = "$0";
+        } else {
+            let cartHTML = "";
+            let totalPrice = 0;
+            wishlistItems.forEach(function(item) {
+                cartHTML += "<div class='cart-item'>";
+                cartHTML += "<h2>" + item.name + "</h2>";
+                cartHTML += "<img src='"+item.image + "' alt='" + item.name + "'>";
+                cartHTML += "<p>Price: " + item.price + "</p>";
+                cartHTML += "</div>";
+                // Increment total price by item's price
+                totalPrice += parseFloat(item.price.replace('$', ''));
+            });
+            let deliveryCharge1 = 50;
+            let gstAmount1 = (totalPrice * 18) / 100;
+            cartDiv.innerHTML = cartHTML;
+            let totalPrice1 = totalPrice+deliveryCharge1+gstAmount1;
+            deliveryCharge.textContent = "$" + deliveryCharge1.toFixed(2);
+            gstAmount.textContent = "$" + gstAmount1.toFixed(2);
+            totalPriceSpan.textContent = "$" + totalPrice1.toFixed(2);
+        }
+</script>
+</body>
+</html>
