@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  DemoSonarCloudScan:
+  DemoSonarCloudSCan:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
