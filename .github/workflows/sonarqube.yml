@@ -17,6 +17,8 @@ jobs:
         with:
           args: >
               -Dsonar.organization=paidahrithika
-              -Dsonar.projectKey=DevOps-assignment
+              -Dsonar.projectKey=PaidaHrithika_DevOps-assignment
+              
+          projectBaseDir: . 
        
               
